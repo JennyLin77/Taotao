@@ -1,0 +1,44 @@
+- var activeIndex = 1
+- var sessionUser = {_id: 122, userName: '七七ing', }
+
+header#header
+	div#header-title
+		h1 淘淘
+		h4 一个专门为大学生提供买卖物品的平台
+
+	nav#header-nav
+		case activeIndex
+			when 1
+				a(href='/index').active 首页
+				a(href='/hotGood') 最热商品
+				a(href='/allGood') 全部商品
+			when 2
+				a(href='/index') 首页
+				a(href='/hotGood').active 最热商品
+				a(href='/allGood') 全部商品
+			when 3
+				a(href='/index') 首页
+				a(href='/hotGood') 最热商品
+				a(href='/allGood').active 全部商品
+			default
+				a(href='/index') 首页
+				a(href='/hotGood') 最热商品
+				a(href='/allGood') 全部商品
+
+	if sessionUser
+		div#header-info
+			a#header-userName(href='/user?userId=#{sessionUser._id}' data-userId='#{sessionUser._id}') Hi,#{sessionUser.userName}
+			a#header-userPic(href='/user?userId=#{sessionUser._id}')
+				if sessionUser.portraitUrl
+					img(src='/image?imageId=#{sessionUser.portraitUrl}')
+				else
+					img(src='../img/default-user.png')
+			a#header-logout(href='/logout') 注销
+	else
+		div#header-tip
+			a(href='javascript:;') 登录
+			span /
+			a(href='/regist') 注册
+
+block append script
+	script(src='/js/header.js')
