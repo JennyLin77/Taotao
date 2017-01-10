@@ -1,0 +1,79 @@
+header#header {
+    width: 100%;
+    height: 105px;
+    background: url(../img/header_bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+div#header-title {
+    height: 100%;
+    float: left;
+    margin-left: 50px;
+    color: #ffffff;
+}
+div#header-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+div#header-title>h4 {
+    font-size: 18px;
+    margin-top: 13px;
+}
+
+nav#header-nav {
+    height: 100%;
+    margin-left: 100px;
+    float: left;
+}
+nav#header-nav>a {
+    margin-top: 31px;
+    display: inline-block;
+    font-size: 20px;
+    color: #ffffff;
+    margin-right: 40px;
+    padding: 7px;
+}
+nav#header-nav>a.active, nav#header-nav>a:hover {
+	font-weight: bold;
+	border-bottom: 2px solid #ffffff;
+}
+
+div#header-info {
+    height: 100%;
+    margin-right: 65px;
+    float: right;
+}
+div#header-info>a {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    height: 100%;
+    line-height: 105px;
+}
+div#header-info>a:hover {
+	text-decoration: underline;
+}
+a#header-userName {
+    margin-right: 7px;
+}
+a#header-userPic {
+    margin-right: 30px;
+}
+a#header-userPic>img {
+    width: 44px;
+    height: 44px;
+}
+
+div#header-tip {
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+    height: 100%;
+    margin-right: 100px;
+}
+div#header-tip>a {
+    color: #333;
+    height: 100%;
+    line-height: 105px;
+}

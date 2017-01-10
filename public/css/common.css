@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 html {
   	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -6,6 +10,14 @@ body {
 	height: 100%;
 	background: url('/img/bg.png') no-repeat 0 0 fixed;
 	background-size: cover;
+}
+
+a, a:hover {
+	text-decoration: none;
+}
+h1, h2, h3 ,h4 ,h5 ,h6 {
+	margin: 0;
+	padding: 0;
 }
 
 .clearfix:before, .clearfix:after {
