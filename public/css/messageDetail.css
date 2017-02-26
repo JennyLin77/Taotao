@@ -1,0 +1,69 @@
+.content-block {
+    background-color: #ffffff;
+    padding: 15px 15px 25px;
+}
+.content-block>.operation-div {
+    border-bottom: 1px solid #F4655F;
+    background-color: rgba(247, 118, 112, 0.7);
+    height: 38px;
+    line-height: 38px;
+}
+a.btn {
+    border: 1px solid #888888;
+    background-color: #ffffff;
+    color: #333;
+    min-width: 50px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 0 6px;
+}
+
+.content-block>.mail-info {
+	background-color: rgba(252, 209, 207, 0.3);
+    border-bottom: 1px solid rgba(244, 101, 95, 0.8);
+    padding: 15px 15px 9px;
+    position: relative;
+}
+h6.mail-tile {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+h6.mail-tile {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+.line {
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+.mail-info>.line:nth-child(4) {
+    margin-bottom: 0px;
+}
+.line>span:first-child {
+    color: #9B8DA6;
+}
+.line.time>span:nth-child(2) {
+	color: #9B8DA6;
+}
+.line.sender>span:nth-child(2) {
+	color: #5FA207;
+	font-weight: bold;
+}
+.mail-info>img {
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+
+p.mail-content {
+    margin-top: 25px;
+    text-indent: 2em;
+    margin-bottom: 5px;
+}

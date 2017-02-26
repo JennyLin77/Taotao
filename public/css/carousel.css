@@ -1,0 +1,92 @@
+div#carousel {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+div#carousel:hover .arrow {
+	display: block;
+}
+
+ul#pic li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	transition: 2s;
+}
+ul#pic li:nth-child(1) {
+	opacity: 1;
+}
+ul#pic li>img {
+	width: 100%;
+	height: 100%;
+}
+
+
+ol#num {
+	position: absolute;
+	z-index: 10;
+	left: 50%;
+	bottom: 10px;
+	margin-left: -58px;
+	margin-bottom: 0;
+	width: 116px;
+	height: 20px;
+	padding: 4px 8px;
+	border-radius: 12px;
+	background-color: hsla(0,0%,100%,.3);
+	font-size: 0px;
+	text-indent: -9999px;
+}
+ol#num>li {
+	float: left;
+	margin-right: 10px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+ol#num>li:last-child {
+	margin-right: 0;
+}
+ol#num>li.active {
+	background-color: #F4655F;
+}
+
+
+.arrow {
+	color: #ffffff;
+	display: none;
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	margin-top: -30px;
+	width: 30px;
+	height: 60px;
+	background-color: rgba(0,0,0,.1);
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+}
+#arrow-left {
+	left: 0;
+}
+#arrow-right {
+	right: 0;
+}
+.arrow:hover {
+	color: #ffffff;
+	background-color: rgba(0,0,0,.7);
+}
+.arrow:link, .arrow:visited, .arrow:active {
+	color: #ffffff;
+}
+
+

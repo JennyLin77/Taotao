@@ -1,0 +1,12 @@
+.mail-item .letter {
+    display: inline-block;
+    width: 18px;
+    height: 15px;
+    background: url(/img/letter/letter_w_o.png) no-repeat center center;
+    background-size: 18 15px;
+    margin-top: 4.5px;
+}
+
+li.mail-item>div:nth-child(3), li.mail-item>div:nth-child(4)>span:nth-child(1), li.mail-item>div:nth-child(5) {
+	font-weight: normal;
+}

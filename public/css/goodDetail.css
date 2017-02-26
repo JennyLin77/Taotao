@@ -1,0 +1,258 @@
+.container {
+    padding: 0 110.5px;
+}
+
+.block1 {
+    margin-top: 40px;
+    height: 365px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.pic-block {
+    position: absolute;
+    width: 370px;
+    height: 365px;
+}
+.display-block {
+    width: 370px;
+    height: 280px;
+}
+.display-block>img {
+    width: 100%;
+    height: 100%;
+}
+ul.pic-list {
+    margin-top: 5px;
+    height: 80px;
+    margin-bottom: 0;
+}
+ul.pic-list>li {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+}
+ul.pic-list>li:last-child {
+    margin-right: 0;
+}
+ul.pic-list>li>img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-block {
+    margin-left: 410px;
+    position: relative;
+}
+.content-block>h5 {
+    padding-top: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+span.collect-tip {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    color: #808080;
+    font-size: 13px;
+}
+.content-block .info {
+    margin-top: 17px;
+    display: block;
+}
+span.info>span {
+    color: #f4655f;
+    font-weight: bold;
+}
+button.btn {
+    width: 100px;
+    height: 35px;
+    background-color: #ffffff;
+    border: 1px solid #333333;
+    margin-right: 30px;
+    margin-top: 55px;
+}
+
+
+.block2 {
+    width: 949px;
+    margin: 0 auto;
+    border: 1px solid #DEDFDE;
+    border-top: none;
+}
+ul.nav-list {
+    background-color: #F7F7F7;
+    border-top: 2px solid #777777;
+    border-bottom: 1px solid #DEDFDE;
+    height: 36px;
+    margin-bottom: 0;
+}
+ul.nav-list>li {
+    height: 36px;
+    float: left;
+    line-height: 36px;
+    font-size: 13px;
+    width: 78px;
+    text-align: center;
+    color: #666;
+}
+ul.nav-list>li.active {
+    background-color: #fff;
+    margin-top: -4px;
+    border-top: 2px solid #f4655f;
+    height: 38px;
+    border-left: 1px solid #dedfde;
+    margin-left: -1px;
+    border-right: 1px solid #dedfde;
+}
+ul.nav-list>li>span {
+    color: #005AA0;
+}
+
+
+.content {
+    display: none;
+    padding: 20px;
+}
+.content1 {
+    display: block;
+}
+.sender-info {
+    border-bottom: 1px solid #DEDFDE;
+    position: relative;
+    margin-bottom: 20px;
+}
+.content h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.sender-info>span {
+    margin-bottom: 10px;
+    display: block;
+}
+.sender-info>span:nth-of-type(4) {
+    margin-bottom: 18px;
+}
+.sender {
+    position: absolute;
+    right: 12px;
+    width: 72px;
+    text-align: center;
+    height: 94px;
+    top: 50%;
+    margin-top: -58px;
+}
+.sender>img {
+    width: 70px;
+    height: 70px;
+}
+.sender>span {
+    display: block;
+    margin-top: 5px;
+}
+
+.good-desc {
+    border-bottom: 1px solid #DEDFDE;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+ul.img-list {
+    margin-top: 20px;
+}
+ul.img-list>li {
+    width: 800px;
+    height: 600px;
+    margin-bottom: 20px;
+}
+ul.img-list>li:last-child {
+    margin-bottom: 0px;
+}
+ul.img-list>li>img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.comment-block {
+    position: relative;
+    height: 170px;
+    border-bottom: 1px dashed #DEDFDE;
+}
+.comment-block>textarea {
+    width: 700px;
+    height: 100px;
+    resize: none;
+    padding: 10px;
+    overflow: auto;
+}
+.comment-block>span {
+    display: block;
+    margin-top: 17px;
+}
+.comment-block .textNum {
+    padding: 0 3px;
+    font-weight: bold;
+    color: #f4655f;
+}
+.comment-block>.btn {
+    margin: 0;
+    position: absolute;
+    right: 206px;
+    bottom: 21px;
+    border: 1px solid #ccc;
+}
+
+li.comment-item {
+    margin-top: 25px;
+}
+.comment {
+    position: relative;
+}
+.comment>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55px;
+    height: 55px;
+}
+.text-div {
+    margin-left: 70px;
+}
+.text-div>h6 {
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 36px;
+    margin-top: 6px;
+}
+span.time {
+    display: inline-block;
+    font-size: 13px;
+    color: #a2a2a2;
+}
+.text-div>p {
+    margin-top: 7px;
+    width: 640px;
+    display: inline-block;
+}
+.text-div>a {
+    color: #F4655F;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.comment .comment-block {
+    border-bottom: none;
+    margin-top: 7px;
+    margin-bottom: -17px;
+    display: none; 
+}
+ul.subcomment-list {
+    margin-left: 70px;
+    margin-top: 10px;
+}

@@ -1,0 +1,27 @@
+.table {
+	font-size: 13px;
+	background-color: #fff;
+    margin-bottom: 0px;
+}
+td, th {
+	text-align: center;
+}
+.container>.row>table>thead>tr>th {
+	height: 40px;
+	line-height: 40px;
+	box-sizing: border-box;
+	padding: 0;
+}
+.container>.row>table>tbody>tr>td {
+	height: 43px;
+	line-height: 43px;
+	padding: 0;
+	box-sizing: border-box;
+}
+button.btn {
+    width: 68px;
+    font-size: 13px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0;
+}

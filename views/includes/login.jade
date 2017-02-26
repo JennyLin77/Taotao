@@ -1,0 +1,24 @@
+div#login-div
+	div.modal-bg
+		a#close-btn(href='javascript:;') ×
+
+	div#login-modal
+		div#login-container 
+			form
+				div#name-div.input-div
+					input#input-name(type='text', name='username', placeholder='请输入用户名')
+					span.warn-tip#name-tip ❤ 用户名不存在
+				div#password-div.input-div
+					input#input-password(type='text', name='password', placeholder='请输入密码')
+					span.warn-tip#password-tip ❤ 密码错误
+				button#btn-login 登录
+				div#login-tip
+					span.text 还没有淘淘账号？
+					a#regist(href='/regist')
+						span 立即注册
+						span#right-icon
+
+link(rel='stylesheet' href='/css/login.css')
+
+
+

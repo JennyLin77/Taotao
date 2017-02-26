@@ -1,0 +1,131 @@
+.container {
+	width: 910px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+
+.content-header {
+    width: 100%;
+    height: 240px;
+    margin: 25px auto;
+    position: relative;
+}
+.carousel-container {
+    width: 630px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.notice {
+    margin-left: 648px;
+    height: 100%;
+    box-sizing: border-box;
+    border: 3px solid #F3726D;
+    padding: 11px;
+}
+.notice>h4 {
+    margin: 18px auto 22px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.input-div {
+    height: 32px;
+    margin-bottom: 25px;
+}
+.input-div>div, .input-div>input {
+    height: 32px;
+    line-height: 32px;
+    box-sizing: border-box;
+    float: right;
+}
+.search-div {
+    width: 32px;
+    background: #F3726D url(/img/search.png) no-repeat center center;
+    background-size: 18px 18px;
+}
+.input-div>input {
+    width: 230px;
+    border: 2px solid #F4655F;
+    border-right: none;
+    padding: 0 12px;
+    outline: none;
+}
+
+
+.list-header {
+    height: 55px;
+    background: url(/img/header-bg.jpg) no-repeat;
+    background-size: cover;
+}
+.list-header>span {
+    color: #ffffff;
+}
+.list-header>.title {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 55px;
+    margin-left: 22px;
+}
+.list-header>span.text {
+    margin-left: 15px;
+    font-size: 13px;
+}
+
+ul.good-list {
+    margin-bottom: 0px;
+}
+li.good-item {
+    height: 140px;
+    border: 1px solid #797979;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+li.good-item:nth-child(1) {
+	border-top: none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+li.good-item:last-child {
+    margin-bottom: 0px;
+}
+li.good-item>img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 19px;
+    left: 19px;
+}
+.good-content {
+    margin-left: 138px;
+    padding: 19px 19px 19px 0;
+}
+.good-content>h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+.good-content>p {
+    height: 14px;
+    line-height: 14px;
+    font-size: 13px;
+}
+.good-content>.good-detail {
+    color: #808080;
+    margin: 14px 0 10px;
+    width: 520px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+p.good-time {
+    position: absolute;
+    right: 19px;
+    bottom: 13px;
+}

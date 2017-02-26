@@ -1,0 +1,126 @@
+extends ../layout
+
+block append style
+	link(rel='stylesheet', href='/css/infoCommon.css')
+	link(rel='stylesheet', href='/css/inbox.css')
+
+block content
+	.container
+		.leftBar
+			ul.nav-list
+				li.nav
+					a(href="/users/info") 个人信息
+				li.nav.active
+					a(href="/users/inbox") 收件箱（<span>5</span>）
+				li.nav
+					a(href="/users/sendbox") 已发送消息
+				li.nav
+					a(href="/users/publishGood") 发布商品
+				li.nav
+					a(href="/users/collectGood") 收藏商品
+				li.nav
+					a(href="/users/commentGood") 留言商品
+		.content-block
+			h4 
+				span 收件箱
+				span#mail_info （共8条，其中<span>未读消息</span>4条）
+			.operation-div
+				a.btn.btn-delete(href="javascript:;")  删除
+				a.btn.btn-hasRead(href="javascript:;") 全部标为已读
+			ul.mail-list
+				li.mail-item.mail-header
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div 发件人
+					div 主题
+					div 时间
+				li.mail-item
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item.read
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item.read
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item.read
+					div
+						a.box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item.read
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+				li.mail-item
+					div
+						a.null-box(href="javascript:") 
+					div
+						a.letter(href="javascript:;")
+					div Linda
+					div 
+						span 关于毕业论文反馈
+						span  - 各位同学好！2016年还剩一周时间，艰苦的英语六级
+					div 2016-10-30
+
+	.publish-div
+		a(href="/goodEdit") 发布商品
+
+
+block append script
+	script(src='/js/jquery.min.js')
+	script(src='/js/info.js')

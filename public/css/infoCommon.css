@@ -1,0 +1,55 @@
+.container {
+    margin-top: 40px;
+    width: 900px;
+    background-color: rgba(244, 101, 95, 0.8);
+    border-radius: 4px;
+    position: relative;
+    padding: 20px 20px 20px 0;
+    min-height: 391px;
+}
+
+.publish-div {
+    position: absolute;
+    top: 146px;
+    right: 60px;
+    width: 100px;
+    height: 100px;
+    background: url(../img/heart.png);
+    background-size: 100px;
+    text-align: center;
+}
+.publish-div a {
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 94px;
+}
+
+
+.leftBar {
+    position: absolute;
+    width: 160px;
+}
+li.nav {
+    height: 34px;
+    line-height: 34px;
+}
+li.nav:hover, li.nav.active {
+    background-color: #F9A49F;
+}
+li.nav a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 15px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.content-block {
+    margin-left: 160px;
+}
+.content-block>div {
+    background-color: #ffffff;
+}

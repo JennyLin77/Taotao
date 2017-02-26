@@ -1,0 +1,169 @@
+extends ../layout
+
+block append style
+	link(rel="stylesheet", href="/css/adminCommon.css")
+	link(rel="stylesheet", href="/css/adminUser.css")
+
+block content
+	.container
+		.row
+			nav
+				ul#nav-list
+					li.active
+						a(href="javascript:;") 用户管理
+					li
+						a(href="/users/adminGood") 商品管理
+
+			div.input-div
+				div.search-div
+				input(name='userName' type='text' placeholder='请输入用户名')
+
+		.row
+			table.table.table-hover.table-bordered.table-striped
+				thead
+					tr
+						th 序列号
+						th 用户名
+						th 发布商品数
+						th 手机长号
+						th 手机短号
+						th 微信号
+						th QQ号
+						th 当前住址
+						th 创建时间
+						th 是否屏蔽
+						th 操作
+				tbody
+					tr
+						td 1
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-danger 屏蔽
+					tr
+						td 2
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-success 解除屏蔽
+					tr
+						td 3
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-danger 屏蔽
+					tr
+						td 4
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-success 解除屏蔽
+					tr
+						td 5
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-danger 屏蔽
+					tr
+						td 6
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-success 解除屏蔽
+					tr
+						td 7
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-danger 屏蔽
+					tr
+						td 8
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-success 解除屏蔽
+					tr
+						td 9
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-danger 屏蔽
+					tr
+						td 10
+						td JennyLin77
+						td 3
+						td 18814127643
+						td 677643
+						td Jenny_lin77
+						td 846891770
+						td 广州市天河区五山街道华南农业大学华山区1栋308
+						td 2016-11-30
+						td 否
+						td 
+							button.btn.btn-success 解除屏蔽
+
+		.row
+			include ../includes/bottom-tip

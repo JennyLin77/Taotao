@@ -1,5 +1,50 @@
 extends ../layout
 
+block append style
+    link(rel='stylesheet', href='/css/index.css')
+
 block content
-  h1= title
-  p Welcome to #{title}
+    div.container
+        div.content-header
+            div.carousel-container
+                include ../includes/carousel
+            div.notice
+                h4 公告
+                p 1、查看商品详情前，请用户先登录；
+                p 2、若想发布商品，也请用户先注册登录；
+                p 3、如果账号被屏蔽，请联系管理员，联系方式为qq号846891770.
+
+        div.input-div
+            div.search-div
+            input(name='goodName' type='text' placeholder='请输入商品名')
+
+        div.list-header
+            span.title 淘淘二手市场
+            span.text 总有你想淘到的货
+
+        ul.good-list
+            li.good-item
+                img(src='/img/good.jpg')
+                div.good-content
+                    h3 可爱茶杯犬
+                    p.good-detail 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸左右，超级可爱，是不是想买一只回家呢~
+                    p.good-price 价格：8888.00
+                    p.good-status 状态：交易正常
+                    p.good-time 发布时间：2016-12-30
+            li.good-item
+                img(src='/img/good.jpg')
+                div.good-content
+                    h3 可爱茶杯犬
+                    p.good-detail 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸左右，超级可爱，是不是想买一只回家呢~
+                    p.good-price 价格：8888.00
+                    p.good-status 状态：交易正常
+                    p.good-time 发布时间：2016-12-30
+
+        include ../includes/bottom-tip
+
+                    
+    include ../includes/login
+
+
+
+

@@ -1,0 +1,54 @@
+extends ../layout
+
+block append style
+	link(rel='stylesheet', href='/css/infoCommon.css')
+	link(rel='stylesheet', href='/css/messageDetail.css')
+
+block content
+	.container
+		.leftBar
+			ul.nav-list
+				li.nav
+					a(href="/users/info") 个人信息
+				if activeIndex == 'inbox'
+					li.nav.active
+						a(href="/users/inbox") 收件箱（<span>5</span>）
+					li.nav
+						a(href="/users/sendbox") 已发送消息
+				else
+					li.nav
+						a(href="/users/inbox") 收件箱（<span>5</span>）
+					li.nav.active
+						a(href="/users/sendbox") 已发送消息
+				li.nav
+					a(href="/users/publishGood") 发布商品
+				li.nav
+					a(href="/users/collectGood") 收藏商品
+				li.nav
+					a(href="/users/commentGood") 留言商品
+		.content-block
+			.operation-div
+				a.btn.btn-return(href="javascript:;")  返回
+				a.btn.btn-reply(href="javascript:;") 回复
+				a.btn.btn-delete(href="javascript:;") 删除
+			.mail-info
+				h6.mail-tile 关于毕业论文反馈
+				.line.sender
+					span 发件人：
+					span linda_zeng
+				.line.time
+					span 时&nbsp;&nbsp;&nbsp;&nbsp;间：
+					span 2016年10月30日
+				.line.recipient
+					span 收件人：
+					span 七七ing
+				img(src="/img/test/1.jpg")
+			p.mail-content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+
+
+	.publish-div
+		a(href="/goodEdit") 发布商品
+
+
+block append script
+	script(src='/js/jquery.min.js')

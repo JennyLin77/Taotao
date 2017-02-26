@@ -1,0 +1,26 @@
+link(rel='stylesheet', href='/css/message.css')
+.message-container
+	.modal-bg
+	.message
+		header
+			h4 发送消息
+			a(href="javascript:;") ×
+		.content
+			.form-div
+				label(for="messageTitle") 消息标题
+				span.tip ❤ 标题不能为空
+				input.input(placeholder="请输入您的标题" name="messageTitle" id="messageTitle")
+			.form-div
+				label(for="receiver") 消息接收方
+				input.input.input-disabled(readonly="readonly" name="receiver" id="receiver" value="七七ing")
+			.form-div
+				label(for="sender") 消息发送方
+				input.input.input-disabled(readonly="readonly" name="sender" id="sender" value="暝77ing")
+			.form-div
+				label(for="content") 消息内容
+				span.tip ❤ 内容不能为空
+				textarea( name="content" id="content")
+		footer
+			button.btn#close-btn 关闭
+			button.btn#send-btn 发送
+

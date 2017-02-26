@@ -1,0 +1,98 @@
+extends ../layout
+
+block append style
+	link(rel="stylesheet", href="/css/adminCommon.css")
+	link(rel="stylesheet", href="/css/adminGood.css")
+
+block content
+	.container
+		.row
+			nav
+				ul#nav-list
+					li
+						a(href="/users/adminUser") 用户管理
+					li.active
+						a(href="javascript:;") 商品管理
+
+			div.input-div
+				div.search-div
+				input(name='goodName' type='text' placeholder='请输入商品名')
+
+		.row
+			ul.good-list
+				li.good-item
+					.title-div
+						h5 可爱茶杯犬
+						.time-info
+							span.time-text 发布时间：2016-11-15
+							span.time-text 更新时间：2016-11-15
+					ul.img-list
+						li
+							img(src="/img/test/1.jpg")
+						li
+							img(src="/img/test/2.jpg")
+						li
+							img(src="/img/test/3.jpg")
+						li
+							img(src="/img/test/4.jpg")
+						li
+							img(src="/img/test/5.jpg")
+
+					.line.first-line
+						h5 卖家用户名：LittlePig77
+					.line
+						span 价格： ￥9999.99
+						span 新旧程度： 全新
+					.line
+						span 交易方式： 当面交易
+						span 付款方式： 现金交易
+					.line
+						span 交易状态： 正常交易
+						span 商品有效时间： 2016-10-12 至 2016-10-30
+					.detail
+						span 商品描述： 
+					.detail-text 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸
+
+					footer
+						button.btn.btn-success 审批通过
+						button.btn.btn-danger 审批不通过
+				li.good-item
+					.title-div
+						h5 可爱茶杯犬
+						.time-info
+							span.time-text 发布时间：2016-11-15
+							span.time-text 更新时间：2016-11-15
+					ul.img-list
+						li
+							img(src="/img/test/1.jpg")
+						li
+							img(src="/img/test/2.jpg")
+						li
+							img(src="/img/test/3.jpg")
+						li
+							img(src="/img/test/4.jpg")
+						li
+							img(src="/img/test/5.jpg")
+
+					.line.first-line
+						h5 卖家用户名：LittlePig77
+					.line
+						span 价格： ￥9999.99
+						span 新旧程度： 全新
+					.line
+						span 交易方式： 当面交易
+						span 付款方式： 现金交易
+					.line
+						span 交易状态： 正常交易
+						span 商品有效时间： 2016-10-12 至 2016-10-30
+					.detail
+						span 商品描述： 
+					.detail-text 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸...
+
+					footer
+						button.btn.btn-success 审批通过
+						button.btn.btn-danger 审批不通过
+
+
+		.row
+			include ../includes/bottom-tip
