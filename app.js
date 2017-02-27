@@ -1,14 +1,16 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var session=require('express-session');
+var session = require('express-session');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var busboy = require('busboy');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+require('./servers/db');
 var app = express();
 
 // view engine setup
