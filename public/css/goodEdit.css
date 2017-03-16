@@ -1,7 +1,6 @@
 div#regist-container {
     margin: 55px auto 0;
     width: 700px;
-    height: 740px;
     background: #ffffff;
     border-radius: 5px;
     border: 1px solid rgb(204, 204, 204);
@@ -33,7 +32,7 @@ div#regist-container>header h4 {
 }
 .form-control {
     display: inline-block;
-    width: 326px;
+    width: 290px;
     border-radius: 2px;
 }
 #detail-form-group {
@@ -50,7 +49,7 @@ div#regist-container>header h4 {
 }
 
 span.input-tip {
-    margin-left: 15px;
+    margin-left: 12px;
     font-size: 13px;
     color: #F4655F;
     line-height: 34px;
@@ -70,7 +69,7 @@ span#detail-tip>span {
 	padding: 0 3px;
 	font-weight: bold;
 }
-span#detail-tip:before {
+span#detail-tip.normal-tip:before {
 	content: '';
 }
 
@@ -123,17 +122,26 @@ span#pics-tip:before {
     vertical-align: top;
 }
 
-div#regist-container>footer {
+div#regist-container footer {
     margin: 35px 0 0;
     height: 62px;
     text-align: center;
     border-top: 1px solid rgb(204, 204, 204);
 }
-div#regist-container>footer button {
+button {
     border: 1px solid #333333;
     width: 100px;
     height: 38px;
     border-radius: 3px;
     background-color: #ffffff;
     margin-top: 12px;
+}
+
+form#form-goodEdit .form-group:nth-of-type(8) {
+    height: 38px;
+    line-height: 38px;
+}
+form#form-goodEdit .form-group:nth-of-type(8)>label {
+    line-height: 38px;
+    vertical-align: top;
 }

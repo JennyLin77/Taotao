@@ -12,10 +12,10 @@ block content
 				input.form-control#username(name="username" type="text"  placeholder="请输入用户名（必填项）")
 				span.input-tip#username-tip 用户名已被注册，请换一个试试吧
 			.form-group
-				input.form-control#password1(name="password1" type="text"  placeholder="请输入密码（必填项）")
+				input.form-control#password1(name="password1" type="password"  placeholder="请输入密码（必填项）")
 				span.input-tip#password1-tip 密码必须由6-10位英文和数字组成，不能包含其它字符
 			.form-group
-				input.form-control#password2(name="password2" type="text"  placeholder="请再次输入密码（必填项）")
+				input.form-control#password2(name="password2" type="password"  placeholder="请再次输入密码（必填项）")
 				span.input-tip#password2-tip 两次密码输入不一致
 			.form-group
 				input.form-control#addr(name="addr" type="text"  placeholder="请输入当前住址，尽量详细（必填项）")
@@ -29,13 +29,8 @@ block content
 				input.form-control#wechat(name="wechat" type="text"  placeholder="请输入微信号")
 			.form-group
 				input.form-control#qq(name="qq" type="text"  placeholder="请输入QQ号")
-			.form-group
-				.pic-container
-					input.form-control#pic(name="pic" type="file")
-					#pic-text 选择图片
-				span.input-tip#pic-tip.normal-tip 请选择一张图片作为你的头像（非必选项）
-		footer
-			button(type="submit")#regist-btn 立即注册
+			footer
+				button(type="submit")#regist-btn.disabled 立即注册
 
 block append script
 	script(src="/js/jquery.min.js")

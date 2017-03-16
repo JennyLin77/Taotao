@@ -12,6 +12,10 @@ body {
 	background: url('/img/bg.png') no-repeat 0 0 fixed;
 	background-size: cover;
 }
+body.noScroll {
+	height: 100%;
+	overflow-y: hidden;
+}
 
 a, a:hover, a:link, a:visited {
 	text-decoration: none;
@@ -41,4 +45,16 @@ h1, h2, h3 ,h4 ,h5 ,h6 {
 
 ul {
 	list-style: none;
+}
+
+.btn {
+	outline: none;
+	border: 1px solid #333;
+	background-color: transparent;
+	color: #333333;
+}
+.btn.active {
+	color: #ffffff;
+	border: none !important;
+	background-color: #F4655F;
 }

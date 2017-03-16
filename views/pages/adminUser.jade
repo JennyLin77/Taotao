@@ -12,11 +12,11 @@ block content
 					li.active
 						a(href="javascript:;") 用户管理
 					li
-						a(href="/users/adminGood") 商品管理
+						a(href="/user/adminGood") 商品管理
 
 			div.input-div
 				div.search-div
-				input(name='userName' type='text' placeholder='请输入用户名')
+				input(name='userName' id="search-input" type='text' placeholder='请输入用户名，支持模糊搜索')
 
 		.row
 			table.table.table-hover.table-bordered.table-striped
@@ -34,136 +34,39 @@ block content
 						th 是否屏蔽
 						th 操作
 				tbody
-					tr
-						td 1
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-danger 屏蔽
-					tr
-						td 2
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-success 解除屏蔽
-					tr
-						td 3
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-danger 屏蔽
-					tr
-						td 4
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-success 解除屏蔽
-					tr
-						td 5
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-danger 屏蔽
-					tr
-						td 6
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-success 解除屏蔽
-					tr
-						td 7
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-danger 屏蔽
-					tr
-						td 8
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-success 解除屏蔽
-					tr
-						td 9
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-danger 屏蔽
-					tr
-						td 10
-						td JennyLin77
-						td 3
-						td 18814127643
-						td 677643
-						td Jenny_lin77
-						td 846891770
-						td 广州市天河区五山街道华南农业大学华山区1栋308
-						td 2016-11-30
-						td 否
-						td 
-							button.btn.btn-success 解除屏蔽
+					if users.length > 0
+						each user, i in users
+							tr(dataId="#{user._id}" id="tr-#{user._id}")
+								td #{i+1}
+								td #{user.userName}
+								td #{user.myGoods.length}
+								td #{user.longPhone}
+								td #{user.shortPhone}
+								td #{user.wechat}
+								td #{user.qq}
+								td #{user.address}
+								td= moment(user.created).format("YYYY-MM-DD")
+								if user.isShield
+									td.shield-text 是
+									td
+										button.btn-normal 解除屏蔽
+								else
+									td.shield-text 否
+									td
+										button.btn-dangerous 屏&nbsp;蔽
 
-		.row
-			include ../includes/bottom-tip
+		if users.length > 0
+			.row
+				include ../includes/bottom-tip
+
+		if users.length == 0 && isSearch == false
+			.row.warn-tip
+				span 用户注册量为0！！！
+		if users.length == 0 && isSearch == true
+			.row.warn-tip
+				span 搜索不到相关的用户！！！
+
+block append script
+	script(src='/js/jquery.min.js')
+	script(src='/js/adminUser.js')
+	script(src='/js/bottom-tip.js')

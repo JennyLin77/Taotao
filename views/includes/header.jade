@@ -1,6 +1,7 @@
 header#header
 	div#header-title
-		h1 淘淘
+		h1
+			a(href="/index") 淘淘
 		h4 一个专门为大学生提供买卖物品的平台
 
 	nav#header-nav
@@ -24,15 +25,23 @@ header#header
 	if hasLogin
 		if sessionUser
 			div#header-info
-				a#header-userName(href='/user?userId=#{sessionUser._id}' data-userId='#{sessionUser._id}') Hi,#{sessionUser.userName}
-				a#header-userPic(href='/user?userId=#{sessionUser._id}')
-					if sessionUser.portraitUrl
-						img(src='/image?imageId=#{sessionUser.portraitUrl}')
-					else
-						img(src='../img/default-user.png')
+				if sessionUser.isAdmin
+					a#header-userName(href='/user/adminUser' data-userId='#{sessionUser._id}') Hi, #{sessionUser.userName}
+						a#header-userPic(href='/user/adminUser')
+							if sessionUser.portraitUrl
+								img(src='/image?imageId=#{sessionUser.portraitUrl}')
+							else
+								img(src='/img/default-user.png')
+				else
+					a#header-userName(href='/user?userId=#{sessionUser._id}' data-userId='#{sessionUser._id}') Hi, #{sessionUser.userName}
+					a#header-userPic(href='/user?userId=#{sessionUser._id}')
+						if sessionUser.portraitUrl
+							img(src='/image?imageId=#{sessionUser.portraitUrl}')
+						else
+							img(src='/img/default-user.png')
 				a#header-logout(href='/logout') 注销
 		else
 			div#header-tip
-				a(href='javascript:;') 登录
+				a#a-login(href='javascript:;') 登录
 				span  / 
 				a(href='/regist') 注册

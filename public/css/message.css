@@ -89,16 +89,11 @@
     border-top: 1px solid #DEDFDE;
     text-align: right;
 }
-.message footer .btn {
+.message .btn {
     width: 70px;
     height: 32px;
     margin-top: 19px;
     margin-right: 20px;
     border: 1px solid #999999;
     outline: none !important; 
-}
-.message footer .btn:nth-of-type(2) {
-    border: 1px solid #ff0000;
-    color: #ffffff;
-    background-color: #F4655F;
 }

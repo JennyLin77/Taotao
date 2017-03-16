@@ -8,107 +8,44 @@ block append style
 block content
 	.container
 		.leftBar
-			ul.nav-list
+			ul.nav-list(blockNo="1")
 				li.nav
-					a(href="/users/info") 个人信息
+					a(href="/user/info") 个人信息
 				li.nav
-					a(href="/users/inbox") 收件箱（<span>5</span>）
+					a(href="/user/inbox") 收件箱（<span>#{noReadNum}</span>）
 				li.nav.active
-					a(href="/users/sendbox") 已发送消息
+					a(href="/user/sendbox") 已发送消息
 				li.nav
-					a(href="/users/publishGood") 发布商品
+					a(href="/user/publishGood") 发布商品
 				li.nav
-					a(href="/users/collectGood") 收藏商品
+					a(href="/user/collectGood") 收藏商品
 				li.nav
-					a(href="/users/commentGood") 留言商品
+					a(href="/user/commentGood") 留言商品
 		.content-block
 			h4 
 				span 已发送信息
-				span#mail_info （共8条）
+				span#mail_info （共#{sessionUser.mySendMessages.length}条）
 			.operation-div
 				a.btn.btn-delete(href="javascript:;")  删除
-				a.btn.btn-hasRead(href="javascript:;") 全部标为已读
 			ul.mail-list
 				li.mail-item.mail-header
 					div
-						a.null-box(href="javascript:") 
+						a.box(href="javascript:")
 					div
 						a.letter(href="javascript:;")
 					div 收件人
 					div 主题
 					div 时间
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
-				li.mail-item
-					div
-						a.null-box(href="javascript:") 
-					div
-						a.letter(href="javascript:;")
-					div Linda
-					div 
-						span 关于毕业论文反馈
-					div 2016-10-30
+				each message, i in sessionUser.mySendMessages
+					li.mail-item.mail(dataId="#{message._id}" index="#{i}" id="msg-#{message._id}")
+						div
+							a.box(href="javascript:")
+						div
+							a.letter(href="javascript:;")
+						div #{message.receiverName}
+						div
+							span #{message.title}
+						div= moment(message.created).format("YYYY-MM-DD")
 
 	.publish-div
 		a(href="/goodEdit") 发布商品
@@ -116,4 +53,4 @@ block content
 
 block append script
 	script(src='/js/jquery.min.js')
-	script(src='/js/info.js')
+	script(src='/js/mailCommon.js')

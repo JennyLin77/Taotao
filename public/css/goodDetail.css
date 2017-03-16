@@ -97,6 +97,7 @@ ul.nav-list>li {
     width: 78px;
     text-align: center;
     color: #666;
+    cursor: pointer;
 }
 ul.nav-list>li.active {
     background-color: #fff;
@@ -181,7 +182,6 @@ ul.img-list>li>img {
 .comment-block {
     position: relative;
     height: 170px;
-    border-bottom: 1px dashed #DEDFDE;
 }
 .comment-block>textarea {
     width: 700px;
@@ -234,6 +234,7 @@ span.time {
     display: inline-block;
     font-size: 13px;
     color: #a2a2a2;
+    width: 200px;
 }
 .text-div>p {
     margin-top: 7px;
@@ -255,4 +256,8 @@ span.time {
 ul.subcomment-list {
     margin-left: 70px;
     margin-top: 10px;
+}
+
+.comment-list {
+    border-top: 1px dashed #DEDFDE;
 }

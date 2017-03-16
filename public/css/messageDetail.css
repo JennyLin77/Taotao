@@ -1,6 +1,7 @@
 .content-block {
     background-color: #ffffff;
     padding: 15px 15px 25px;
+    min-height: 351px;
 }
 .content-block>.operation-div {
     border-bottom: 1px solid #F4655F;

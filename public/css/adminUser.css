@@ -18,10 +18,3 @@ td, th {
 	padding: 0;
 	box-sizing: border-box;
 }
-button.btn {
-    width: 68px;
-    font-size: 13px;
-    height: 28px;
-    line-height: 28px;
-    padding: 0;
-}

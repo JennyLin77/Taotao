@@ -1,90 +1,96 @@
-window.onload = function() {
-	var index = 0;
-	var timer = setInterval(run, 2000);
-
-	var pics = $('pic').getElementsByTagName('li');
-	var nums = $('num').getElementsByTagName('li');
-	var len = pics.length;
-	var carousel = $('carousel');
-	var arrowLeft = $('arrow-left');
-	var arrowRight = $('arrow-right');
-
-	// 初始化
-	for(var i=0; i<len; ++i) {
-		nums[i].index = i;
-		pics[i].style.zIndex = len - i;
-
-	}
-
-
-	// 函数定义
-	function run() {
-		var oldIndex = index;
-
-		index++;
-		if (index >= len) {
-			index = 0;
-		}
-
-		changeStatus(oldIndex, index);
-	}
-
-	function changeStatus(oldIndex, curIndex) {
-		pics[oldIndex].style.opacity = '0';
-		nums[oldIndex].className = '';
-
-		pics[curIndex].style.opacity = '1';
-		nums[curIndex].className = 'active';
-
-		index = curIndex;
-	}
-
-
-	// 元素绑定事件
-	// nums元素悬浮绑定，鼠标停在页签上，停止计时器，手动切换
-	for(var i=0; i<len; ++i) {
-		nums[i].onmouseover = function() {
-			clearInterval(timer);
-			changeStatus(index, this.index);
-		}
-	}
-
-	//单击左箭头
-	arrowLeft.onclick = function() {
-		var oldIndex = index;
-
-		index--;
-		if (index < 0) {
-			index = len - 1;
-		}
-
-		changeStatus(oldIndex, index);
-	}
-
-	//单击右箭头
-	arrowRight.onclick = function() {
-		var oldIndex = index;
-
-		index++;
-		if (index >= len) {
-			index = 0;
-		}
-
-		changeStatus(oldIndex, index);
-	}
-
-	//鼠标悬浮轮播图上，停止计时器
-	carousel.onmouseover = function() {
-		clearInterval(timer);
-	}
-
-	//鼠标离开轮播图上，开启计时器
-	carousel.onmouseout = function() {
-		timer = setInterval(run, 2000);
-	}
-	
+var carousel = function() {
+    this.initialize();
 }
 
-function $(id) {
-	return typeof id==='string' ? document.getElementById(id) : id;
+carousel.prototype = {
+    /* 初始化 */
+    initialize: function(){
+        var that = this;
+        this.index = 0;
+        this.timer = setInterval(function () {
+            that.run(that);
+        }, 2000);
+
+        this.carousel = document.getElementById('carousel');
+        this.pics = document.getElementById('pic').getElementsByTagName('li');
+        this.nums = document.getElementById('num').getElementsByTagName('li');
+        this.len = this.pics.length;
+        this.arrowLeft = document.getElementById('arrow-left');
+        this.arrowRight = document.getElementById('arrow-right');
+
+        for(var i=0; i<this.len; ++i) {
+            this.nums[i].index = i;
+            //this.pics[i].style.zIndex = this.len - i;
+            this.pics[i].style.zIndex = 1;
+        }
+        this.pics[0].style.zIndex = 2;
+
+
+        for(var i=0; i<this.len; ++i) {
+            this.nums[i].onmouseover = function () {
+                clearInterval(that.timer);
+                that.changeStatus(that.index, this.index);
+            }
+        }
+
+        this.arrowLeft.onclick = function () {
+            var oldIndex = that.index;
+
+            that.index--;
+            if(that.index < 0) {
+                that.index = that.len - 1;
+            }
+            that.changeStatus(oldIndex, that.index);
+        }
+
+        this.arrowRight.onclick = function () {
+            var oldIndex = that.index;
+
+            that.index++;
+            if(that.index >= that.len) {
+                that.index = 0;
+            }
+
+            that.changeStatus(oldIndex, that.index);
+        }
+
+        this.carousel.onmouseover = function () {
+            clearInterval(that.timer);
+        }
+
+        this.carousel.onmouseout = function () {
+            that.timer = setInterval(function () {
+                that.run(that);
+            }, 2000);
+        }
+    },
+    start: function () {
+        var that = this;
+        this.timer = setInterval(function () {
+            that.run(that);
+        }, 2000);
+    },
+    stop: function () {
+        clearInterval(this.timer);
+    },
+    run: function (that) {
+        var oldIndex = that.index;
+
+        that.index++;
+        if(that.index >= that.len) {
+            that.index = 0;
+        }
+
+        that.changeStatus(oldIndex, that.index);
+    },
+    changeStatus: function (oldIndex, curIndex) {
+        this.pics[oldIndex].style.opacity = '0';
+        this.nums[oldIndex].className = '';
+        this.pics[oldIndex].style.zIndex = 1;
+
+        this.pics[curIndex].style.opacity = '1';
+        this.nums[curIndex].className = 'active';
+        this.pics[curIndex].style.zIndex = 2;
+        this.index = curIndex;
+    }
 }

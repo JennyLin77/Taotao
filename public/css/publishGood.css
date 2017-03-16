@@ -48,13 +48,13 @@ li.good-item>img {
     margin-top: 0;
 }
 .good-item>footer {
-    margin-top: 17px;
+    margin-top: 25px;
     border-top: 1px solid #CCCCCC;
     margin-bottom: 0px;
 }
 li.footer-item {
     display: inline-block;
-    width: 33.33%;
+    width: 50%;
     text-align: center;
     height: 22px;
     line-height: 22px;
@@ -69,4 +69,21 @@ li.footer-item>a {
 }
 li.footer-item>a:hover {
     text-decoration: underline;
+}
+
+
+
+.good-tip {
+    line-height: 140px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tip>.bottom-tip{
+    width: 100%;
+    border: none;
 }

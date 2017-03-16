@@ -13,37 +13,47 @@ block content
                 p 1、查看商品详情前，请用户先登录；
                 p 2、若想发布商品，也请用户先注册登录；
                 p 3、如果账号被屏蔽，请联系管理员，联系方式为qq号846891770.
-
-        div.input-div
-            div.search-div
-            input(name='goodName' type='text' placeholder='请输入商品名')
+        if activeIndex == 3
+            div.input-div
+                div.search-div
+                input(name='goodName' id="search-input" type='text' placeholder='请输入商品名，支持模糊搜索')
 
         div.list-header
             span.title 淘淘二手市场
             span.text 总有你想淘到的货
+            if isSearch
+                span#searchNum 共#{goods.length}条搜索结果
 
         ul.good-list
-            li.good-item
-                img(src='/img/good.jpg')
-                div.good-content
-                    h3 可爱茶杯犬
-                    p.good-detail 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸左右，超级可爱，是不是想买一只回家呢~
-                    p.good-price 价格：8888.00
-                    p.good-status 状态：交易正常
-                    p.good-time 发布时间：2016-12-30
-            li.good-item
-                img(src='/img/good.jpg')
-                div.good-content
-                    h3 可爱茶杯犬
-                    p.good-detail 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸左右，超级可爱，是不是想买一只回家呢~
-                    p.good-price 价格：8888.00
-                    p.good-status 状态：交易正常
-                    p.good-time 发布时间：2016-12-30
+            if goods.length > 0
+                each good in goods
+                    li.good-item(dataId="#{good._id}")
+                        img(src='/image?imageId=#{good.images[0]}' title='戳我可以查看商品详情哦~')
+                        div.good-content
+                            h3(title='戳我可以查看商品详情哦~') #{good.goodName}
+                            p.good-detail #{good.detail}
+                            p.good-price 价格：¥ #{good.price}
+                            p.good-status 状态：#{good.tradeStatus}
+                            p.good-time 发布时间：#{moment(good.meta.createdAt).format("YYYY-MM-DD")}
 
-        include ../includes/bottom-tip
+            if goods.length == 0 && isSearch == false
+                li.good-item
+                    span.good-tip 暂时没有可交易的商品！！！
+            if goods.length == 0 && isSearch == true
+                li.good-item
+                    span.good-tip 搜索不到相关的商品！！！
 
-                    
+        if goods.length > 0
+            include ../includes/bottom-tip
+
     include ../includes/login
+
+block append script
+    script(src="/js/jquery.min.js")
+    script(src="/js/carousel.js")
+    script(src="/js/login.js")
+    script(src="/js/index.js")
+    script(src="/js/bottom-tip.js")
 
 
 

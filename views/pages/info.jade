@@ -9,76 +9,83 @@ block content
 		.leftBar
 			ul.nav-list
 				li.nav.active
-					a(href="/users/info") 个人信息
+					a(href="/user/info") 个人信息
 				li.nav
-					a(href="/users/inbox") 收件箱（<span>5</span>）
+					a(href="/user/inbox") 收件箱（<span>#{mailNum}</span>）
 				li.nav
-					a(href="/users/sendbox") 已发送消息
+					a(href="/user/sendbox") 已发送消息
 				li.nav
-					a(href="/users/publishGood") 发布商品
+					a(href="/user/publishGood") 发布商品
 				li.nav
-					a(href="/users/collectGood") 收藏商品
+					a(href="/user/collectGood") 收藏商品
 				li.nav
-					a(href="/users/commentGood") 留言商品
+					a(href="/user/commentGood") 留言商品
 		.content-block
 			.info#info1
 				h6 个人中心 〉个人信息
 				.info-table
 					.form-div
 						label 用户名
-						input(value="七七ing" readonly="readonly")
+						input(value="#{sessionUser.userName}" readonly="readonly")
 					.form-div
 						label 当前住址
-						input(value="广东省广州市天河区五山街道182号" readonly="readonly")
+						input(value="#{sessionUser.address}" readonly="readonly")
 					.form-div
 						label 手机长号
-						input(value="18814127643" readonly="readonly")
+						input(value="#{sessionUser.longPhone}" readonly="readonly")
 					.form-div
 						label 手机短号
-						input(value="677643" readonly="readonly")
+						input(value="#{sessionUser.shortPhone}" readonly="readonly")
 					.form-div
 						label 微信号
-						input(value="JennyLin_77" readonly="readonly")
+						input(value="#{sessionUser.wechat}" readonly="readonly")
 					.form-div
 						label QQ号
-						input(value="846891770" readonly="readonly")
+						input(value="#{sessionUser.qq}" readonly="readonly")
 					.pic-div
 						.img-div
-							img(src="/img/default-user.png")
+							if sessionUser.portraitUrl
+								img(src='/image?imageId=#{sessionUser.portraitUrl}')
+							else
+								img(src='/img/default-user.png')
 						span 头像
 					.footer-div
 						button.btn#btn-edit 编辑
 			.info.info-edit#info2
 				h6 个人中心 〉个人信息
 				.info-table
-					.form-div
-						label(for="username") 用户名
-						input.input-disabled(id="username" name="username" value="七七ing" readonly="readonly")
-					.form-div
-						label(for="addr") 当前住址
-						input(id="addr" name="addr" placeholder="请输入您的当前住址")
-						span.input-tip ❤ 当前住址不能为空
-					.form-div
-						label(for="longPhone") 手机长号
-						input(id="longPhone" name="longPhone" placeholder="请输入您的手机长号")
-						span.input-tip ❤ 手机长号不能为空
-					.form-div
-						label(for="shortPhone") 手机短号
-						input(id="shortPhone" name="shortPhone" placeholder="请输入您的手机短号")
-					.form-div
-						label(for="wechat") 微信号
-						input(id="wechat" name="wechat" placeholder="请输入您的微信号")
-					.form-div
-						label(for="qq") QQ号
-						input(id="qq" name="qq" placeholder="请输入您的QQ号")
-					.pic-div
-						.img-div
-							img(src="/img/default-user.png")
-						.input-div
-							input(type="file")
-							span 换个头像
-					.footer-div
-						button.btn#btn-save 保存
+					form#form-info
+						.form-div
+							label(for="username") 用户名
+							input.input-disabled(id="username" name="username" value="#{sessionUser.userName}" readonly="readonly")
+						.form-div
+							label(for="addr") 当前住址
+							input(id="addr" name="addr" placeholder="请输入您的当前住址" value='#{sessionUser.address}')
+							span.input-tip#addr-tip ❤ 当前住址不能为空
+						.form-div
+							label(for="longPhone") 手机长号
+							input(id="longPhone" name="longPhone" placeholder="请输入您的手机长号" value='#{sessionUser.longPhone}')
+							span.input-tip#lPhone-tip ❤ 手机长号不能为空
+						.form-div
+							label(for="shortPhone") 手机短号
+							input(id="shortPhone" name="shortPhone" placeholder="请输入您的手机短号" value='#{sessionUser.shortPhone}')
+						.form-div
+							label(for="wechat") 微信号
+							input(id="wechat" name="wechat" placeholder="请输入您的微信号" value='#{sessionUser.wechat}')
+						.form-div
+							label(for="qq") QQ号
+							input(id="qq" name="qq" placeholder="请输入您的QQ号" value='#{sessionUser.qq}')
+						.pic-div
+							.img-div
+								if sessionUser.portraitUrl
+									img#portrait(src='/image?imageId=#{sessionUser.portraitUrl}')
+								else
+									img#portrait(src='/img/default-user.png')
+							.input-div
+								input#input-portrait(type="file" name="portrait")
+								span 换个头像
+						.footer-div
+							button.btn.active#btn-save(type="submit") 保存
 			.password-div1#password-div1
 				a(href="javascript:;")#trigger-password 想修改密码，那就戳一下我~
 			.password-div2#password-div2
@@ -86,16 +93,16 @@ block content
 				.info-table
 					.form-div
 						label(for="oldPassword") 原密码
-						input(id="oldPassword" name="oldPassword" placeholder="请输入原密码")
-						span.input-tip ❤ 原密码输入错误
+						input(id="oldPassword" type="password" name="oldPassword" placeholder="请输入原密码")
+						span.input-tip#oldPwd-tip ❤ 原密码输入错误
 					.form-div
 						label(for="newPassword") 新密码
-						input(id="newPassword" name="newPassword" placeholder="请输入新密码")
-						span.input-tip ❤ 密码必须由6-10位英文和数字组成，不能包含其它字符
+						input(id="newPassword" type="password" name="newPassword" placeholder="请输入新密码")
+						span.input-tip#newPwd-tip ❤ 密码必须由6-10位英文和数字组成，不能包含其它字符
 					.form-div
 						label(for="newPassword2") 确认密码
-						input(id="newPassword2" name="newPassword2" placeholder="请确认密码")
-						span.input-tip ❤ 两次密码输入不一致
+						input(id="newPassword2" type="password" name="newPassword2" placeholder="请确认密码")
+						span.input-tip#newPwd2-tip ❤ 两次密码输入不一致
 					.footer-div
 						button.btn#btn-save2 保存
 	.publish-div

@@ -5,7 +5,6 @@ ul.good-list {
 
 ul.good-list>li {
     width: 100%;
-    height: 441px;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0,0,0,.3);
@@ -50,6 +49,7 @@ ul.img-list>li {
     height: 120px;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
 }
 ul.img-list>li:last-child {
 	margin-right: 0;
@@ -68,6 +68,15 @@ ul.img-list>li>img {
 }
 .line.first-line>h5 {
     font-weight: bold;
+    font-weight: bold;
+    display: inline-block;
+    width: 320px;
+}
+.line span.red {
+    color: #f3726d;
+}
+.line span.green {
+    color: #0eb50e;
 }
 .line>span {
     width: 320px;
@@ -92,13 +101,28 @@ ul.img-list>li>img {
     width: 640px;
     margin: 20px auto 0;
     border-top: 1px solid rgba(153, 153, 153, 0.5);
-    height: 60px;
+    height: 55px;
     text-align: center;
 }
-.good-item>footer .btn {
+.good-item>footer button {
     width: 96px;
     margin-top: 13px;
 }
-.good-item .btn-success {
+.good-item .btn-normal {
     margin-right: 136px;
+}
+
+.picDisplay-block {
+    width: 640px;
+    margin: 0 auto;
+    height: 225px;
+}
+.picDisplay-block>img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.container {
+    min-height: 406px;
 }

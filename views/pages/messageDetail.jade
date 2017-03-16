@@ -7,48 +7,57 @@ block append style
 block content
 	.container
 		.leftBar
-			ul.nav-list
+			ul.nav-list(blockNo="#{blockNo}")
 				li.nav
-					a(href="/users/info") 个人信息
-				if activeIndex == 'inbox'
+					a(href="/user/info") 个人信息
+				if blockNo == 0
 					li.nav.active
-						a(href="/users/inbox") 收件箱（<span>5</span>）
+						a(href="/user/inbox") 收件箱（<span>#{noReadNum}</span>）
 					li.nav
-						a(href="/users/sendbox") 已发送消息
+						a(href="/user/sendbox") 已发送消息
 				else
 					li.nav
-						a(href="/users/inbox") 收件箱（<span>5</span>）
+						a(href="/user/inbox") 收件箱（<span>#{noReadNum}</span>）
 					li.nav.active
-						a(href="/users/sendbox") 已发送消息
+						a(href="/user/sendbox") 已发送消息
 				li.nav
-					a(href="/users/publishGood") 发布商品
+					a(href="/user/publishGood") 发布商品
 				li.nav
-					a(href="/users/collectGood") 收藏商品
+					a(href="/user/collectGood") 收藏商品
 				li.nav
-					a(href="/users/commentGood") 留言商品
-		.content-block
+					a(href="/user/commentGood") 留言商品
+		.content-block(msgId="#{message._id}")
 			.operation-div
-				a.btn.btn-return(href="javascript:;")  返回
-				a.btn.btn-reply(href="javascript:;") 回复
-				a.btn.btn-delete(href="javascript:;") 删除
+				if blockNo == 0
+					a.btn.btn-return(href="/user/inbox")  返回
+					a.btn.btn-reply(href="javascript:;") 回复
+				else
+					a.btn.btn-return(href="/user/sendbox")  返回
+				a.btn.btn-delete(href="/user/mailbox/doDeleteOne?msgId=#{message._id}&blockNo=#{blockNo}") 删除
 			.mail-info
-				h6.mail-tile 关于毕业论文反馈
+				h6.mail-tile #{message.title}
 				.line.sender
 					span 发件人：
-					span linda_zeng
+					span #{message.senderName}
 				.line.time
 					span 时&nbsp;&nbsp;&nbsp;&nbsp;间：
-					span 2016年10月30日
+					span= moment(message.created).format("YYYY年MM月DD日")
 				.line.recipient
 					span 收件人：
-					span 七七ing
-				img(src="/img/test/1.jpg")
-			p.mail-content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+					span #{message.receiverName}
+				if message.senderId.portraitUrl
+					img(src='/image?imageId=#{message.senderId.portraitUrl}')
+				else
+					img(src='/img/default-user.png')
+			p.mail-content #{message.content}
 
 
 	.publish-div
 		a(href="/goodEdit") 发布商品
 
+	include ../includes/replyMessage
+
 
 block append script
 	script(src='/js/jquery.min.js')
+	script(src="/js/replyMessage.js")

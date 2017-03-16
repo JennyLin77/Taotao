@@ -24,6 +24,7 @@ li.good-item>img {
     width: 95px;
     height: 95px;
     margin-top: -47.5px;
+    cursor: pointer;
 }
 .good-info {
     margin-left: 115px;
@@ -33,6 +34,7 @@ li.good-item>img {
     font-weight: bold;
     font-size: 15px;
     margin-top: 1px;
+    cursor: pointer;
 }
 .good-info>p {
     color: #808080;
@@ -47,4 +49,19 @@ li.good-item>img {
     bottom: 0px;
     right: 0px;
     margin-top: 0;
+}
+
+.good-tip {
+    line-height: 140px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tip>.bottom-tip{
+    width: 100%;
+    border: none;
 }

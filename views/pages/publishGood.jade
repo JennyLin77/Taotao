@@ -9,53 +9,45 @@ block content
 		.leftBar
 			ul.nav-list
 				li.nav
-					a(href="/users/info") 个人信息
+					a(href="/user/info") 个人信息
 				li.nav
-					a(href="/users/inbox") 收件箱（<span>5</span>）
+					a(href="/user/inbox") 收件箱（<span>#{noReadNum}</span>）
 				li.nav
-					a(href="/users/sendbox") 已发送消息
+					a(href="/user/sendbox") 已发送消息
 				li.nav.active
-					a(href="/users/publishGood") 发布商品
+					a(href="/user/publishGood") 发布商品
 				li.nav
-					a(href="/users/collectGood") 收藏商品
+					a(href="/user/collectGood") 收藏商品
 				li.nav
-					a(href="/users/commentGood") 留言商品
+					a(href="/user/commentGood") 留言商品
 		.content-block
 			.title-div 
 				h5 个人中心 ＞ 发布商品
 			ul.good-list
-				li.good-item
-					img(src="/img/good.jpg")
-					.good-info
-						h6 可爱茶杯犬
-						p 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸...
-						span 价格：8888.00
-						span 状态：交易正常
-						span 发布时间：2016-12-30
-					footer
-						ul.footer-list
-							li.footer-item
-								a(href="#") 查看
-							li.footer-item
-								a(href="#") 修改
-							li.footer-item
-								a(href="#") 删除
-				li.good-item
-					img(src="/img/good.jpg")
-					.good-info
-						h6 可爱茶杯犬
-						p 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸...
-						span 价格：8888.00
-						span 状态：交易正常
-						span 发布时间：2016-12-30
-					footer
-						ul.footer-list
-							li.footer-item
-								a(href="#") 查看
-							li.footer-item
-								a(href="#") 修改
-							li.footer-item
-								a(href="#") 删除
+				if goods.length > 0
+					each good in goods
+						li.good-item(dataId="#{good._id}")
+							img(src='/image?imageId=#{good.images[0]}')
+							.good-info
+								h6 #{good.goodName}
+								p #{good.detail}
+								span 价格：¥ #{good.price}
+								span 状态：#{good.tradeStatus}
+								span 发布时间：#{moment(good.meta.createdAt).format("YYYY-MM-DD")}
+							footer
+								ul.footer-list
+									li.footer-item
+										a(href="/goodDetail?goodId=#{good._id}") 查看
+									li.footer-item
+										a(href="/goodModify?goodId=#{good._id}") 修改
+
+				if goods.length == 0
+					li.good-item
+							span.good-tip 亲，你尚未发布过商品哦~
+
+			if goods.length > 0
+				.tip
+					include ../includes/bottom-tip
 
 
 	.publish-div
@@ -63,4 +55,6 @@ block content
 
 
 block append script
+	script(src='/js/jquery.min.js')
+	script(src='/js/bottom-tip.js')
 

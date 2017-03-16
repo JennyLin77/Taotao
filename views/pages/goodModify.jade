@@ -1,0 +1,76 @@
+extends ../layout
+
+block append style
+    link(rel="stylesheet", href="/css/goodEdit.css")
+
+block content
+    div#regist-container
+        header
+            h4 修改商品信息
+        form#form-goodModify
+            .form-group
+                label(for="goodName") 商品名
+                input.form-control#goodName(name="goodName" type="text" value="#{good.goodName}"  placeholder="请输入您的商品名，不能为空")
+                span.input-tip#goodName-tip 商品名不能为空
+            .form-group
+                label(for="tradeMode") 交易方式
+                select.form-control#tradeMode(name="tradeMode" data="#{good.tradeMode}")
+                    option(value="当面交易") 当面交易
+                    option(value="邮寄交易") 邮寄交易
+            .form-group
+                label(for="degree") 新旧程度
+                select.form-control#degree(name="degree" data="#{good.degree}")
+                    option(value="全新") 全新
+                    option(value="九成新") 九成新
+                    option(value="八成新") 八成新
+                    option(value="七成新") 七成新
+                    option(value="六成新") 六成新
+                    option(value="五成新") 五成新
+                    option(value="比较旧") 比较旧
+            .form-group
+                label(for="price") 价格
+                input.form-control#price(name="price" type="text" value="#{good.price}"  placeholder="以RMB为单位，只能输入数值")
+                span.input-tip#price-tip 价格不能为空
+            .form-group
+                label(for="paymentWay") 付款方式
+                select.form-control#paymentWay(name="paymentWay" data="#{good.paymentWay}")
+                    option(value="现金交易") 现金交易
+                    option(value="银行转账") 银行转账
+                    option(value="微信交易") 微信交易
+                    option(value="支付宝交易") 支付宝交易
+                    option(value="任意方式") 任意方式
+            .form-group
+                label(for="tradeTime") 交易有效时间
+                select.form-control#tradeTime(name="tradeTime" data="#{good.tradeTime}")
+                    option(value="1") 三天内
+                    option(value="2") 一周内
+                    option(value="3") 一个月内
+                    option(value="4") 三个月内
+                    option(value="5") 一年内
+                span.input-tip.normal-tip 从发布日算起（发布日为#{moment(good.startTime).format("YYYY-MM-DD")}）
+            .form-group#detail-form-group
+                label(for="detail") 商品描述
+                textarea.form-control#detail(name="detail") #{good.detail}
+                span.input-tip#detail-tip.normal-tip 还可以输入<span>200</span>字
+            .form-group
+                label(for="tradeStatus") 交易状态
+                select.form-control#tradeStatus(name="tradeStatus" data="#{good.tradeStatus}")
+                    option(value="正常交易") 正常交易
+                    option(value="交易成功") 交易成功
+                    option(value="已下线") 已下线
+            .form-group
+                label(for="pics") 商品图片
+                .pics-container
+                    input.form-control#pics(name="pics" type="file" multiple="muliple")
+                    #pics-text 添加图片
+                span.input-tip#pics-tip.normal-tip 可添加1-5张图片；若不添加，则展示上次提交的商品图片
+            .form-group(style="display: none;")
+                label(for="goodId") 商品ID
+                input.form-control#goodId(name="goodId" type="text" value="#{good._id}" readonly="readonly")
+            footer
+                button.btn#regist-btn.active(type="submit") 更新商品
+
+block append script
+    script(src="/js/jquery.min.js")
+    script(src="/js/goodModify.js")
+

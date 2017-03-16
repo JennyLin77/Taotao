@@ -1,15 +1,15 @@
 div#carousel
 	ul#pic
-		li 
-			img(src='/img/test/1.jpg' alt='商品名' title='商品名')
-		li  
-			img(src='/img/test/2.jpg' alt='商品名' title='商品名')
-		li  
-			img(src='/img/test/3.jpg' alt='商品名' title='商品名')
-		li  
-			img(src='/img/test/4.jpg' alt='商品名' title='商品名')
-		li  
-			img(src='/img/test/5.jpg' alt='商品名' title='商品名')
+		li(dataId="#{goodArr[0]._id}")
+			img(src='/image?imageId=#{goodArr[0].images[0]}' alt='#{goodArr[0].goodName}' title='#{goodArr[0].goodName}')
+		li(dataId="#{goodArr[1]._id}")
+			img(src='/image?imageId=#{goodArr[1].images[0]}' alt='#{goodArr[1].goodName}' title='#{goodArr[1].goodName}')
+		li(dataId="#{goodArr[2]._id}")
+			img(src='/image?imageId=#{goodArr[2].images[0]}' alt='#{goodArr[2].goodName}' title='#{goodArr[2].goodName}')
+		li(dataId="#{goodArr[3]._id}")
+			img(src='/image?imageId=#{goodArr[3].images[0]}' alt='#{goodArr[3].goodName}' title='#{goodArr[3].goodName}')
+		li(dataId="#{goodArr[4]._id}")
+			img(src='/image?imageId=#{goodArr[4].images[0]}' alt='#{goodArr[4].goodName}' title='#{goodArr[4].goodName}')
 	ol#num
 		li.active 1
 		li 2
@@ -20,4 +20,3 @@ div#carousel
 	a.arrow#arrow-right(href='javascript:;') >
 
 link(rel='stylesheet', href='/css/carousel.css')
-script(src='/js/carousel.js')

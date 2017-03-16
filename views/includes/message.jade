@@ -4,23 +4,23 @@ link(rel='stylesheet', href='/css/message.css')
 	.message
 		header
 			h4 发送消息
-			a(href="javascript:;") ×
+			a(href="javascript:;")#a-close ×
 		.content
 			.form-div
 				label(for="messageTitle") 消息标题
-				span.tip ❤ 标题不能为空
+				span.tip#messageTitle-tip ❤ 标题不能为空
 				input.input(placeholder="请输入您的标题" name="messageTitle" id="messageTitle")
 			.form-div
 				label(for="receiver") 消息接收方
-				input.input.input-disabled(readonly="readonly" name="receiver" id="receiver" value="七七ing")
+				input.input.input-disabled(readonly="readonly" name="receiver" id="receiver" dataId="#{good.ownerId._id}" value="#{good.ownerId.userName}")
 			.form-div
 				label(for="sender") 消息发送方
-				input.input.input-disabled(readonly="readonly" name="sender" id="sender" value="暝77ing")
+				input.input.input-disabled(readonly="readonly" name="sender" id="sender" dataId="#{sessionUser._id}" value="#{sessionUser.userName}")
 			.form-div
 				label(for="content") 消息内容
-				span.tip ❤ 内容不能为空
-				textarea( name="content" id="content")
+				span.tip#content-tip ❤ 内容不能为空
+				textarea( name="content" id="content" placeholder="请输入您的内容...")
 		footer
-			button.btn#close-btn 关闭
-			button.btn#send-btn 发送
+			button.btn#btn-close 关闭
+			button.btn#btn-send 发送
 

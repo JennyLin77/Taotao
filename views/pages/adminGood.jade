@@ -5,94 +5,75 @@ block append style
 	link(rel="stylesheet", href="/css/adminGood.css")
 
 block content
-	.container
+	.container(isSearch="#{isSearch}")
 		.row
 			nav
 				ul#nav-list
 					li
-						a(href="/users/adminUser") 用户管理
+						a(href="/user/adminUser") 用户管理
 					li.active
 						a(href="javascript:;") 商品管理
 
 			div.input-div
 				div.search-div
-				input(name='goodName' type='text' placeholder='请输入商品名')
+				input(name='goodName' id="search-input" type='text' placeholder='请输入商品名，支持模糊搜索')
 
 		.row
 			ul.good-list
-				li.good-item
-					.title-div
-						h5 可爱茶杯犬
-						.time-info
-							span.time-text 发布时间：2016-11-15
-							span.time-text 更新时间：2016-11-15
-					ul.img-list
-						li
-							img(src="/img/test/1.jpg")
-						li
-							img(src="/img/test/2.jpg")
-						li
-							img(src="/img/test/3.jpg")
-						li
-							img(src="/img/test/4.jpg")
-						li
-							img(src="/img/test/5.jpg")
+				if goods.length > 0
+					each good, i in goods
+						li.good-item(dataId="#{good._id}" id="item-#{good._id}")
+							.title-div
+								h5 #{good.goodName}
+								.time-info
+									span.time-text 发布时间：#{moment(good.meta.createdAt).format("YYYY-MM-DD")}
+									span.time-text 更新时间：#{moment(good.meta.updateAt).format("YYYY-MM-DD")}
+							.picDisplay-block
+								img(src='/image?imageId=#{good.images[0]}')
+							ul.img-list
+								each imgUrl in good.images
+									li
+										img(src='/image?imageId=#{imgUrl}' title='点击我，可以查看大图')
 
-					.line.first-line
-						h5 卖家用户名：LittlePig77
-					.line
-						span 价格： ￥9999.99
-						span 新旧程度： 全新
-					.line
-						span 交易方式： 当面交易
-						span 付款方式： 现金交易
-					.line
-						span 交易状态： 正常交易
-						span 商品有效时间： 2016-10-12 至 2016-10-30
-					.detail
-						span 商品描述： 
-					.detail-text 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸
+							.line.first-line
+								h5 卖家用户名：#{good.ownerId.userName}
+								if good.approveStatus == true
+									span 审批状态： <span class="green">审批通过</span>
+								else
+									span 审批状态： <span class="red">审批不通过</span>
+							.line
+								span 价格： ¥#{good.price}
+								span 新旧程度： #{good.degree}
+							.line
+								span 交易方式： #{good.tradeMode}
+								span 付款方式： #{good.paymentWay}
+							.line
+								span 交易状态： #{good.tradeStatus}
+								span 商品有效时间： #{moment(good.startTime).format("YYYY-MM-DD")} 至 #{moment(good.endTime).format("YYYY-MM-DD")}
+							.detail
+								span 商品描述：
+							.detail-text #{good.detail}
 
-					footer
-						button.btn.btn-success 审批通过
-						button.btn.btn-danger 审批不通过
-				li.good-item
-					.title-div
-						h5 可爱茶杯犬
-						.time-info
-							span.time-text 发布时间：2016-11-15
-							span.time-text 更新时间：2016-11-15
-					ul.img-list
-						li
-							img(src="/img/test/1.jpg")
-						li
-							img(src="/img/test/2.jpg")
-						li
-							img(src="/img/test/3.jpg")
-						li
-							img(src="/img/test/4.jpg")
-						li
-							img(src="/img/test/5.jpg")
-
-					.line.first-line
-						h5 卖家用户名：LittlePig77
-					.line
-						span 价格： ￥9999.99
-						span 新旧程度： 全新
-					.line
-						span 交易方式： 当面交易
-						span 付款方式： 现金交易
-					.line
-						span 交易状态： 正常交易
-						span 商品有效时间： 2016-10-12 至 2016-10-30
-					.detail
-						span 商品描述： 
-					.detail-text 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸...
-
-					footer
-						button.btn.btn-success 审批通过
-						button.btn.btn-danger 审批不通过
+							footer
+								button.btn-normal 审批通过
+								button.btn-dangerous 审批不通过
 
 
-		.row
-			include ../includes/bottom-tip
+		if goods.length > 0
+			.row
+				include ../includes/bottom-tip
+
+		if goods.length == 0 && isSearch == false
+			.row.warn-tip
+				span 暂时没有需要审批的商品！！！
+		if goods.length == 0 && isSearch == true
+			.row.warn-tip
+				span 搜索不到相关的商品！！！
+
+
+
+
+block append script
+	script(src='/js/jquery.min.js')
+	script(src='/js/adminGood.js')
+	script(src='/js/bottom-tip.js')

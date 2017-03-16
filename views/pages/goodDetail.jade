@@ -8,97 +8,94 @@ block content
 		.block1
 			.pic-block
 				.display-block
-					img(src="/img/test/1.jpg")
+					img(src='/image?imageId=#{good.images[0]}')
 				ul.pic-list
-					li
-						img(src="/img/test/1.jpg")
-					li
-						img(src="/img/test/2.jpg")
-					li
-						img(src="/img/test/3.jpg")
-					li
-						img(src="/img/test/4.jpg")
-					li
-						img(src="/img/test/5.jpg")
+					each imgUrl in good.images
+						li
+							img(src='/image?imageId=#{imgUrl}' title='点击我，可以查看大图')
 			.content-block
-				h5 可爱茶杯犬
-				span.collect-tip ❤ 24人收藏该商品
-				span.info 价格：<span>¥9999.99</span>
-				span.info 交易方式：当面交易
-				span.info 交易状态：正常交易
-				span.info 新旧程度：九成新
-				span.info 付款方式：现金交易
-				span.info 商品有效时间：2016-10-20 至 2016-10-30
-				button.btn 联系卖家
-				button.btn 收藏
+				h5#goodTitle(data-id='#{good._id}') #{good.goodName}
+				span.collect-tip ❤ <span id="collectNum">#{good.collectNum}</span>人收藏该商品
+				span.info 价格：<span>¥#{good.price}</span>
+				span.info 交易方式：#{good.tradeMode}
+				span.info 交易状态：#{good.tradeStatus}
+				span.info 新旧程度：#{good.degree}
+				span.info 付款方式：#{good.paymentWay}
+				span.info 商品有效时间：#{moment(good.startTime).format("YYYY-MM-DD")} 至 #{moment(good.endTime).format("YYYY-MM-DD")}
+				if !isSelf
+					button.btn#btn-contact 联系卖家
+					if isCollect
+						button.btn#btn-collect 已收藏
+					else
+						button.btn#btn-collect 收藏
 		.block2
-			ul.nav-list
-				li 商品信息
-				li.active 留言<span>（0）</span>
-			.content.content1
+			ul.nav-list#nav-list
+				li.active(index="1") 商品信息
+				li(index="2") 留言（<span id="totalCommentNum">#{good.comment.length}</span>）
+			.content.content1#content1
 				.sender-info
 					h5 发布者信息
-					span 手机长号：18814127643
-					span 手机短号：677643
-					span QQ号：846891770
-					span 微信号：JennyLin_77
+					span 手机长号：#{good.ownerId.longPhone}
+					span 手机短号：#{good.ownerId.shortPhone}
+					span QQ号：#{good.ownerId.qq}
+					span 微信号：#{good.ownerId.wechat}
 					.sender
-						img(src="/img/test/1.jpg")
-						span JennyLin77
+						if good.ownerId.portraitUrl
+							img(src='/image?imageId=#{good.ownerId.portraitUrl}')
+						else
+							img(src='/img/default-user.png')
+						span #{good.ownerId.userName}
 				.good-desc
 					h5 商品描述
-					p 也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬，贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸...
+					p #{good.detail}
 				.good-pic
 					h5 商品图片
 					ul.img-list
-						li
-							img(src="/img/test/1.jpg")
-						li
-							img(src="/img/test/2.jpg")
-						li
-							img(src="/img/test/3.jpg")
-						li
-							img(src="/img/test/4.jpg")
-						li
-							img(src="/img/test/5.jpg")
-			.content.content2
+						each imgUrl in good.images
+							li
+								img(src='/image?imageId=#{imgUrl}')
+			.content.content2#content2
 				.comment-block
-					textarea(placeholder="写下你的留言......")
+					textarea#textarea-comment(placeholder="写下你的留言......")
 					span 还可以输入<span class="textNum">100</span>字
-					button.btn 留言
-				ul.comment-list
-					li.comment-item
-						.comment
-							img(src="/img/test/1.jpg")
-							.text-div
-								h6 七七ing
-								span.time 2016-11-30 00:00:00
-								p 贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬
-								a(href="javascript:;") 收起回复
-							.comment-block
-								textarea(placeholder="写下你的回复......")
-								span 还可以输入<span class="textNum">100</span>字
-								button.btn 回复
-					li.comment-item
-						.comment
-							img(src="/img/test/1.jpg")
-							.text-div
-								h6 七七ing
-								span.time 2016-11-30 00:00:00
-								p 贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬
-								a(href="javascript:;") 回复
-							.comment-block
-								textarea(placeholder="写下你的回复......")
-								span 还可以输入<span class="textNum">100</span>字
-								button.btn 回复
-							ul.subcomment-list
-								li.subcomment-item.comment
-									img(src="/img/test/1.jpg")
+					button.btn#btn-comment 留言
+				if good.comment.length>0
+					ul.comment-list#comment-list
+						each comment in good.comment
+							li.comment-item(dataId="#{comment._id}")
+								.comment
+									if comment.userId.portraitUrl
+										img(src='/image?imageId=#{comment.userId.portraitUrl}')
+									else
+										img(src='/img/default-user.png')
 									.text-div
-										h6 七七ing
-										span.time 2016-11-30 00:00:00
-										p 贵妇犬，卷毛犬。起源于美国，是一种宠物犬。体型在8英寸，也称茶杯贵宾犬
+										h6 #{comment.userId.userName}
+										span.time= moment(comment.created).format("YYYY-MM-DD HH:mm:ss")
+										p #{comment.content}
+										a(href="javascript:;").reply-toggle 回复
+									if comment.subComment.length>0
+										ul.subcomment-list
+											each subComment in comment.subComment
+												li.subcomment-item.comment
+													if subComment.userId.portraitUrl
+														img(src='/image?imageId=#{subComment.userId.portraitUrl}')
+													else
+														img(src='/img/default-user.png')
+													.text-div
+														h6 #{subComment.userId.userName}
+														span.time= moment(subComment.created).format("YYYY-MM-DD HH:mm:ss")
+														p #{subComment.content}
+									.comment-block
+										textarea(placeholder="写下你的回复......")
+										span 还可以输入<span class="textNum">100</span>字
+										button.btn.btn-reply 回复
 	include ../includes/message
+
+block append script
+	script(src="/js/jquery.min.js")
+	script(src="/js/moment.min.js")
+	script(src="/js/goodDetail.js")
+	script(src="/js/message.js")
 
 
 

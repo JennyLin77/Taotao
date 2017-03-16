@@ -1,6 +1,7 @@
 .content-block {
     background-color: #ffffff;
     padding: 15px 15px 25px;
+    min-height: 351px;
 }
 .content-block>h4 {
     height: 18px;
@@ -46,6 +47,7 @@ ul.mail-list {
 li.mail-item {
     border-bottom: 1px solid #C1C8D2;
     font-size: 12px;
+    cursor: pointer;
 }
 li.mail-item.mail-header {
     line-height: 24px;
@@ -53,7 +55,7 @@ li.mail-item.mail-header {
     border-right: 1px solid #C1C8D2;
 }
 li.mail-item:hover {
-    background-color: #FCD1CF;
+    background-color: #fdf0f0;
 }
 li.mail-item.selected {
     background-color: #f9b2b0;
@@ -81,7 +83,7 @@ li.mail-item>div:nth-child(1) {
     height: 24px;
     text-align: center;
 }
-a.null-box {
+a.box {
     display: inline-block;
     width: 13px;
     height: 13px;
@@ -89,7 +91,7 @@ a.null-box {
     background-size: 13px;
     margin-top: 5px;
 }
-a.box {
+.mail-item.selected a.box {
     display: inline-block;
     width: 13px;
     height: 13px;
